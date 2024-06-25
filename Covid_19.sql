@@ -1,9 +1,9 @@
---1) Datewise Likelihood of dying -Totalcases vs TotalDeath- in India
+--1) Datewise Likelihood of dying Totalcases vs TotalDeath in India
 SELECT date, total_cases, total_deaths from "covidDeaths"
 where location like '%India%'
 
   
---2) Total % of deaths out of entire population- in India
+--2) Total % of deaths out of entire population in India
 SELECT max(total_deaths)/avg(cast(population as integer))*100 from "covidDeaths"
 where location like '%India%'
 
@@ -14,12 +14,12 @@ group by location
 order by percentage desc;
 
 
---4) Total % of covid +ve cases- in India
+--4) Total % of covid +ve cases in India
 SELECT (max(total_cases)/avg(cast(population as bigint))*100) as percentagepositive from "covidDeaths"
 where location like '%India%'
 
   
---5) Total % of covid +ve cases- in world
+--5) Total % of covid +ve cases in world
 SELECT location, (max(total_cases)/avg(cast(population as bigint))*100) as percentagepositive from "covidDeaths"
 group by location
 order by percentagepositive desc
@@ -39,7 +39,7 @@ group by location
 order by total_deaths desc
 
   
---8) Daily newcases vs hospitalizations vs icu_patients- India
+--8) Daily newcases vs hospitalizations vs icu_patients India
 SELECT date, new_cases, hosp_patients, icu_patients from "covidDeaths" 
 where location like '%India%'
 
