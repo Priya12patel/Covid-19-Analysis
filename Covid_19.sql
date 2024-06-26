@@ -51,5 +51,8 @@ join "covidVaccination" on "covidDeaths".iso_code="covidVaccination".iso_code an
 
 --10) Countrywise total vaccinated persons.
 select "covidDeaths".location as country,max("covidVaccination".people_fully_vaccinated) as Fully_vaccinated from "covidDeaths" 
-join "covidVaccination" on "covidDeaths".iso_code="covidVaccination".iso_code and "covidDeaths".date="covidVaccination".date where "covidDeaths".continent is not null group by country order by Fully_vaccinated desc;
+join "covidVaccination" on "covidDeaths".iso_code="covidVaccination".iso_code and "covidDeaths".date="covidVaccination".date
+where "covidDeaths".continent is not null 
+group by country 
+order by Fully_vaccinated desc;
 
