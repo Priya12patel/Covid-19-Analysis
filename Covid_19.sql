@@ -39,7 +39,7 @@ group by location
 order by total_deaths desc
 
   
---8) Daily newcases vs hospitalizations vs icu_patients India
+--8) Daily newcases, hospitalizations, icu_patients India
 SELECT date, new_cases, hosp_patients, icu_patients from "covidDeaths" 
 where location like '%India%'
 
